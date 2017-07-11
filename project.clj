@@ -36,6 +36,8 @@
              :nrepl-middleware ["cemerick.piggieback/wrap-cljs-repl"]
              :css-dirs ["public/css"]}
 
+  :main "src/js/main.js"
+
   :cljsbuild {:builds {:app
                        {:source-paths ["src" "env/dev/cljs"]
                         :compiler
@@ -60,7 +62,14 @@
                          :foreign-libs [{:file "public/js/bundle.js"
                                          :provides ["cljsjs.react" "cljsjs.react.dom" "webpack.bundle"]}]
                          :optimizations :advanced
-                         :pretty-print false}}}}
+                         :pretty-print false}}
+                       :server
+                       {:source-paths ["src/node" "src/cljs"]
+                        :compiler {:target :nodejs
+                                   :output-to "main.js"
+                                   :output-dir "target"
+                                   :main server.core
+                                   :optimizations :none}}}
 
   :aliases {"package" ["do" "clean" ["cljsbuild" "once" "release"]]}
 
