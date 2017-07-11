@@ -6,8 +6,11 @@ Example of importing this cool React Webcam into Reagent: https://github.com/moz
 
 # Installation
 `lein deps`
+
 `lein npm install`
+
 `lein npm build run`
+
 `lein clean && lein figwheel`
 
 
