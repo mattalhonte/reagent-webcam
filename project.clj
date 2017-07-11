@@ -38,6 +38,7 @@
 
   :main "src/js/main.js"
 
+  
   :cljsbuild {:builds {:app
                        {:source-paths ["src" "env/dev/cljs"]
                         :compiler
@@ -69,7 +70,8 @@
                                    :output-to "main.js"
                                    :output-dir "target"
                                    :main server.core
-                                   :optimizations :none}}}
+                                   :optimizations :none}}
+                       }}
 
   :aliases {"package" ["do" "clean" ["cljsbuild" "once" "release"]]}
 
